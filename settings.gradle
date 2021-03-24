@@ -1,3 +1,4 @@
 
-rootProject.name = 'HelloKotlin'
+rootProject.name = 'StudyKotlin'
 
+include "HelloWorld"
