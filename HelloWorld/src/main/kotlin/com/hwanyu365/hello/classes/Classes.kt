@@ -1,7 +1,9 @@
-package com.hwanyu365.classes
+package com.hwanyu365.hello.classes
 
-class Classes {
-    fun run() {
+import com.hwanyu365.hello.Worker
+
+class Classes:Worker {
+    override fun run() {
         val name = "hwanyu365"
 
         // Kotlin does not have a new keyword.
@@ -16,6 +18,18 @@ class Classes {
         Car().move()
     }
 }
+
+/**
+ * The class declaration consists of belows:
+ *   - class name
+ *   - class header (optional)
+ *      - type parameters
+ *      - primary constructor (the keyword can be omitted if it not have any annotations or visibility modifiers)
+ *      - etc
+ *   - class body (optional)
+ *   - curly braces (can be omitted if there is no both header and body)
+ */
+class Empty
 
 class InitOrderDemo private constructor(private val name: String, var age: Int) { // trailing comma
     val firstProperty = "First property: $name".also(::println)

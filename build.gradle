@@ -1,6 +1,4 @@
 subprojects {
-    group = 'com.hwanyu365'
-
     repositories {
         mavenCentral()
     }

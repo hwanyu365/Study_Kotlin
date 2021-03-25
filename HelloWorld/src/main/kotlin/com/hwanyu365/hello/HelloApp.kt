@@ -1,4 +1,4 @@
-package com.hwanyu365
+package com.hwanyu365.hello
 
 import javafx.scene.text.FontWeight
 import tornadofx.*
