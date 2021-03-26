@@ -5,7 +5,7 @@ import com.hwanyu365.hello.Worker
 class Exceptions:Worker {
 
     override fun run() {
-        println("\n\n====== Exceptions ======")
+        super.run()
 
         try {
             val x: Any = "one"

@@ -5,7 +5,7 @@ import com.hwanyu365.hello.Worker
 class BasicTypes : Worker {
 
     override fun run() {
-        println("\n\n====== Basic Types ======")
+        super.run()
         numbers()
         numbersRepresentationOnJVM()
         operation()

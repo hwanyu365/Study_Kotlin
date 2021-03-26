@@ -2,8 +2,9 @@ package com.hwanyu365.hello.classes
 
 import com.hwanyu365.hello.Worker
 
-class Classes:Worker {
+class Classes : Worker {
     override fun run() {
+        super.run()
         val name = "hwanyu365"
 
         // Kotlin does not have a new keyword.
@@ -12,10 +13,6 @@ class Classes:Worker {
 
         // constructor
         HideDefaultConstructor(name)
-
-        // open, abstract
-        Triangle().introduce()
-        Car().move()
     }
 }
 
@@ -30,6 +27,33 @@ class Classes:Worker {
  *   - curly braces (can be omitted if there is no both header and body)
  */
 class Empty
+
+/**
+ * There are four visibility modifiers in Kotlin:
+ * - private
+ * - protected
+ * - internal
+ * - public (default)
+ *
+ * Packages
+ * - private
+ * - internal
+ * - public
+ *
+ * Classes and interfaces
+ * - private
+ * - protected
+ * - internal
+ * - public
+ *
+ * Constructor
+ * - private
+ * - internal
+ * - public
+ *
+ * Local
+ * - cannot have
+ */
 
 class InitOrderDemo private constructor(private val name: String, var age: Int) { // trailing comma
     val firstProperty = "First property: $name".also(::println)
@@ -58,27 +82,5 @@ class InitOrderDemo private constructor(private val name: String, var age: Int) 
 class HideDefaultConstructor private constructor() {
     constructor(name: String) : this() {
         println("HideDefaultConstructor.name is $name")
-    }
-}
-
-open class Shape constructor(private val name: String = "Shape", private val vertex: Int = 0) {
-    fun introduce() {
-        println("name=$name, vertex=$vertex")
-    }
-}
-
-class Triangle constructor(name: String = "Triangle", vertex: Int = 3) : Shape(name, vertex)
-
-abstract class Vehicle constructor(private val name: String = "Vehicle", private val cc: Int = 0) {
-    fun introduce() {
-        println("name=$name, cc=$cc")
-    }
-
-    abstract fun move()
-}
-
-class Car constructor(name: String = "Car", cc: Int = 1600) : Vehicle(name, cc) {
-    override fun move() {
-        println("Brrrrrr")
     }
 }

@@ -5,7 +5,7 @@ import com.hwanyu365.hello.Worker
 class TypeCheckAndCast : Worker {
 
     override fun run() {
-        println("\n\n====== Type checks and casts ======")
+        super.run()
         isAndNotIs()
         smartCasts()
         safeAndUnsafeCast()

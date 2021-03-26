@@ -1,5 +1,7 @@
 package com.hwanyu365.hello
 
 interface Worker {
-    fun run()
+    fun run() {
+        println("\n\n====== ${javaClass.simpleName} ======")
+    }
 }
