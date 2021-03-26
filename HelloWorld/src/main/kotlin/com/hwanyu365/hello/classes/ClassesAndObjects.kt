@@ -19,6 +19,9 @@ class ClassesAndObjects : Worker {
         DataClasses().run()
         SealedClasses().run()
         Generics().run()
+        NestedClasses().run()
+        EnumClasses().run()
         ObjectExpressionsAndDeclarations().run()
+        Delegation().run()
     }
 }
