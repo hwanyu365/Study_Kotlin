@@ -23,5 +23,6 @@ class ClassesAndObjects : Worker {
         EnumClasses().run()
         ObjectExpressionsAndDeclarations().run()
         Delegation().run()
+        TypeAliases().run()
     }
 }

@@ -2,6 +2,10 @@ package com.hwanyu365.hello
 
 import com.hwanyu365.hello.classes.ClassesAndObjects
 import com.hwanyu365.hello.controlflow.ControlFlow
+import com.hwanyu365.hello.etc.NullSafety
+import com.hwanyu365.hello.etc.OperatorOverloading
+import com.hwanyu365.hello.etc.ThisExpressions
+import com.hwanyu365.hello.functions.Functions
 import com.hwanyu365.hello.types.Types
 
 //import com.hwanyu365.hello.types.TypeCheckAndCast as tca
@@ -12,4 +16,8 @@ fun main() {
     Types().run()
     ControlFlow().run()
     ClassesAndObjects().run()
+    Functions().run()
+    NullSafety().run()
+    ThisExpressions().run()
+    OperatorOverloading().run()
 }
