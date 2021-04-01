@@ -1,4 +1,4 @@
-package com.hwanyu365.hello.collections
+package com.hwanyu365.hello.stdlib.collections
 
 import com.hwanyu365.hello.Worker
 
@@ -10,6 +10,41 @@ class Operations : Worker {
         associateOp()
         flattenOp()
         plusAndMinusOperators()
+        aggregateOperations()
+        foldAndReduce()
+    }
+
+    private fun foldAndReduce() {
+        println("\n== Fold and reduce ==")
+
+        val numbers = listOf(5, 2, 10, 4)
+        val sum =
+            numbers.reduce { acc, element -> acc + element } // the first step of reduce() uses the first and the second elements as operation arguments on the first step
+        println("numbers.reduce=$sum")
+
+        val sumDoubled = numbers.fold(0) { acc, element -> acc + element * 2 }
+        val sumDoubledReduce =
+            numbers.reduce { acc, element -> acc + element * 2 } // incorrect: the first element isn't doubled in the result
+        println("numbers.fold=$sumDoubled, number.reduce=$sumDoubledReduce")
+
+        val sumDoubledRight = numbers.foldRight(0) { element, acc -> acc + element * 2 }
+        val sumDoubledReduceRight = numbers.reduceRight { element, acc -> acc + element * 2 } // incorrect: the first element isn't doubled in the result
+        println("numbers.foldRight=$sumDoubledRight, number.reduceRight=$sumDoubledReduceRight")
+
+        val sumEven = numbers.foldIndexed(0) { idx, sum, element -> if (idx % 2 == 0) sum + element else sum }
+        val sumEvenRight = numbers.foldRightIndexed(0) { idx, element, sum -> if (idx % 2 == 0) sum + element else sum }
+        println("numbers.foldIndexed=$sumEven, number.foldRightIndexed=$sumEvenRight")
+
+        val runningReduceSum = numbers.runningReduce { sum, item -> sum + item }
+        val runningFoldSum = numbers.runningFold(10) { sum, item -> sum + item }
+        println("numbers.runningReduce=$runningReduceSum, number.runningFold=$runningFoldSum")
+    }
+
+    private fun aggregateOperations() {
+        println("\n== Aggregate operations ==")
+        val numbers = (0..10).toList()
+        println("count=${numbers.count()}, min=${numbers.minOrNull()}, max=${numbers.maxOrNull()}, sum=${numbers.sum()}, avg=${numbers.average()}")
+        println("sumOf=${numbers.sumOf { it % 5 }}")
     }
 
     private fun plusAndMinusOperators() {
@@ -39,6 +74,7 @@ class Operations : Worker {
         println(containers.flatMap { it.values }) // behaves as a subsequent call of map()
         println((containers.map { it.values }).flatten())
     }
+
     data class StringContainer(val values: List<String>)
 
     private fun associateOp() {
@@ -54,7 +90,8 @@ class Operations : Worker {
         println(names.associate { name -> parseFullName(name).let { it.lastName to it.firstName } })
     }
 
-    data class FullName (val firstName: String, val lastName: String)
+    data class FullName(val firstName: String, val lastName: String)
+
     private fun parseFullName(fullName: String): FullName {
         val nameParts = fullName.split(" ")
         if (nameParts.size == 2) {

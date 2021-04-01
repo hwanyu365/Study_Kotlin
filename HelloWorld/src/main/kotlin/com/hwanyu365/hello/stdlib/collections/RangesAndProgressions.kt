@@ -1,4 +1,4 @@
-package com.hwanyu365.hello.collections
+package com.hwanyu365.hello.stdlib.collections
 
 import com.hwanyu365.hello.Worker
 

@@ -1,7 +1,7 @@
-package com.hwanyu365.hello.collections
+package com.hwanyu365.hello.stdlib.collections
 
 import com.hwanyu365.hello.Worker
-import com.hwanyu365.hello.util.printAll
+import com.hwanyu365.hello.util.log
 import java.util.*
 
 internal class Collections : Worker {
@@ -42,6 +42,10 @@ internal class Collections : Worker {
         Filtering().run()
         Grouping().run()
         Retrieve().run()
+        Ordering().run()
+        WriteOperations().run()
+        SetSpecificOperations().run()
+        MapSpecificOperations().run()
     }
 
     private fun iterators() {
@@ -71,36 +75,36 @@ internal class Collections : Worker {
         val list = List(10) { it }
         val filteredList = mutableListOf<Int>()
         list.filterTo(filteredList) { it % 2 != 0 }
-        list.printAll("src")
-        filteredList.printAll("odd")
-        list.filter { (it != 0) && (it % 2 == 0) }.printAll("even")
+        list.log("src")
+        filteredList.log("odd")
+        list.filter { (it != 0) && (it % 2 == 0) }.log("even")
 
         val map = mapOf("banana" to "yellow", "apple" to "Red", "grape" to "green")
-        map.printAll("map")
+        map.log("map")
     }
 
     private fun copyCollections() {
         println("\n== Copy ==")
         val list = List(5) { it * 2 + 1 }
-        list.printAll("source")
+        list.log("source")
 
         val readableCopiedList = list.toList()
-        readableCopiedList.printAll("readableCopiedList")
+        readableCopiedList.log("readableCopiedList")
 
         val copiedList = list.toMutableList()
         copiedList.add(7)
-        copiedList.printAll("copiedList")
+        copiedList.log("copiedList")
     }
 
     private fun initializerFunctionsForList() {
         println("\n== Initializer functions for lists ==")
-        List(10) { it }.printAll()
-        List(10) { it * 2 + 1 }.printAll()
-        List(10) { (it + 1) * 2 }.printAll()
+        List(10) { it }.log()
+        List(10) { it * 2 + 1 }.log()
+        List(10) { (it + 1) * 2 }.log()
 
         val linkedList = LinkedList(listOf("one", "two", "three"))
         linkedList.add("four")
-        linkedList.printAll()
+        linkedList.log()
     }
 
     private fun constructFromElements() {
